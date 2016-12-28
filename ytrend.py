@@ -10,6 +10,8 @@ response = requests.get("https://www.youtube.com/feed/trending")
 data = response.text
 soup = BeautifulSoup(data,"lxml") 
 
+#get all header tags
+
 i=0 
 con = True
 while con==True:
@@ -21,4 +23,7 @@ while con==True:
               print("Title[%s] = %s\n"%(i,title))
               list1.insert(i,href)
               i=i+1
-                           
+      
+      choice = int(raw_input("Want to play video enter your choice else -1 "))
+      select = list1[choice]
+      link = "https://www.youtube.com" + select
